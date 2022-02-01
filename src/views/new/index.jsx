@@ -1,19 +1,13 @@
-import React, { Component } from "react"
+import React from "react"
 import "react-quill/dist/quill.snow.css"
 import ReactQuill from "react-quill"
 import { Container, Form, Button } from "react-bootstrap"
 import "./styles.css"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 export default function NewBlogPost() {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    watch,
-    formState: { errors },
-  } = useForm()
+  const { register, handleSubmit, setValue, watch } = useForm()
 
   const postBlog = async (data) => {
     try {
@@ -26,7 +20,6 @@ export default function NewBlogPost() {
         body: JSON.stringify(data),
       })
       if (response.ok) {
-        let blog = await response.json()
         console.log("Posted")
       }
     } catch (error) {

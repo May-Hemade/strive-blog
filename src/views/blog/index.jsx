@@ -44,7 +44,15 @@ class Blog extends Component {
       return (
         <div className="blog-details-root">
           <Container>
-            <Image className="blog-details-cover" src={blog.cover} fluid />
+            <Image
+              className="blog-details-cover"
+              src={
+                blog.cover == null
+                  ? "https://res.cloudinary.com/dmgebuztr/image/upload/v1643730539/oct21/fkaskwozlqq2mhfs3ez4.jpg"
+                  : blog.cover
+              }
+              fluid
+            />
             <h1 className="blog-details-title">{blog.title}</h1>
 
             <div className="blog-details-container">

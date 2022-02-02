@@ -9,7 +9,15 @@ export default class BlogItem extends Component {
     return (
       <Link to={`/blog/${id}`} className="blog-link">
         <Card className="blog-card">
-          <Card.Img variant="top" src={cover} className="blog-cover" />
+          <Card.Img
+            variant="top"
+            src={
+              cover == null
+                ? "https://res.cloudinary.com/dmgebuztr/image/upload/v1643730539/oct21/fkaskwozlqq2mhfs3ez4.jpg"
+                : cover
+            }
+            className="blog-cover"
+          />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
           </Card.Body>

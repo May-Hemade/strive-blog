@@ -7,7 +7,11 @@ export default class BlogAuthor extends Component {
     return (
       <Row>
         <Col xs={2}>
-          <Image className="blog-author" src={avatar} roundedCircle />
+          <Image
+            className="blog-author"
+            src={avatar == null ? " https://place-puppy.com/100x100" : avatar}
+            roundedCircle
+          />
         </Col>
         <Col>
           <div>by</div>

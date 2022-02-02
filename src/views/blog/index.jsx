@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container, Image } from "react-bootstrap"
+import { Button, Container, Image } from "react-bootstrap"
 import { withRouter } from "react-router"
 import BlogAuthor from "../../components/blog/blog-author"
 import BlogLike from "../../components/likes/BlogLike"
@@ -13,15 +13,18 @@ class Blog extends Component {
 
   fetchBlog = async (id) => {
     try {
-      let response = await fetch(`http://localhost:3002/blogs/${id}`, {
-        method: "GET",
-      })
+      let response = await fetch(
+        `${process.env.REACT_APP_BE_URL}/blogs/${id}`,
+        {
+          method: "GET",
+        }
+      )
       if (response.ok) {
         let blog = await response.json()
         console.log("Blog", blog)
         this.setState({ blog: blog, loading: false })
       } else {
-        this.props.history.push("/404")
+        // this.props.history.push("/404")
       }
     } catch (error) {
       console.log(error)
@@ -58,6 +61,12 @@ class Blog extends Component {
             </div>
 
             <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
+            <a
+              href={`${process.env.REACT_APP_BE_URL}/blogs/${blog.id}/downloadPDF`}
+              className="btn border-dark"
+            >
+              Download
+            </a>
           </Container>
         </div>
       )

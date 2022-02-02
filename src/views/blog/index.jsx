@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Container, Image } from "react-bootstrap"
+import { Container, Image } from "react-bootstrap"
 import { withRouter } from "react-router"
 import BlogAuthor from "../../components/blog/blog-author"
 import BlogLike from "../../components/likes/BlogLike"

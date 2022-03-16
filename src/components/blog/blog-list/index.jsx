@@ -11,9 +11,9 @@ export default class BlogList extends Component {
         method: "GET",
       })
       if (response.ok) {
-        let blogs = await response.json()
-        console.log("Blogs", blogs)
-        this.setState({ blogs: blogs })
+        let result = await response.json()
+        console.log("Blogs", result.blogs)
+        this.setState({ blogs: result.blogs })
       }
     } catch (error) {
       console.log(error)

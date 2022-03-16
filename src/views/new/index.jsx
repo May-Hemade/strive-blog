@@ -16,6 +16,7 @@ export default function NewBlogPost() {
         method: "POST",
         headers: {
           "Content-type": "application/json",
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
         },
         body: JSON.stringify(data),
       })

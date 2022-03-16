@@ -6,10 +6,10 @@ export default class BlogAuthor extends Component {
     const { name, avatar } = this.props
     return (
       <Row>
-        <Col xs={2}>
+        <Col xs={2}> 
           <Image
             className="blog-author"
-            src={avatar == null ? " https://place-puppy.com/100x100" : avatar}
+            src={avatar == null ? "https://place-puppy.com/100x100" : avatar}
             roundedCircle
           />
         </Col>

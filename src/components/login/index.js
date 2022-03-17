@@ -11,12 +11,12 @@ function Login() {
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
-    registerUser(data)
+    loginUser(data)
   }
 
   const history = useHistory()
 
-  const registerUser = async (data) => {
+  const loginUser = async (data) => {
     try {
       let response = await fetch(
         `${process.env.REACT_APP_BE_URL}/authors/login`,
@@ -49,6 +49,11 @@ function Login() {
     <div>
       <Container className="new-blog-container">
         <h1 className="mt-5">Login</h1>
+        <div className="mt-3">
+          <a href={`${process.env.REACT_APP_BE_URL}/authors/googleLogin`}>
+            <button>Google Login</button>
+          </a>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-3">
             <input type="email" {...register("email", { required: true })} />
